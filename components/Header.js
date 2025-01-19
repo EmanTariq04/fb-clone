@@ -1,26 +1,22 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import HeaderIcon from "./HeaderIcon";
+import SearchIcon from "@mui/icons-material/Search";
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+import FlagOutlinedIcon from "@mui/icons-material/FlagOutlined";
+import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import PlayCircleFilledWhiteOutlinedIcon from "@mui/icons-material/PlayCircleFilledWhiteOutlined";
+import PeopleOutlineIcon from "@mui/icons-material/PeopleOutline";
+import GridViewRoundedIcon from "@mui/icons-material/GridViewRounded";
+import TextsmsRoundedIcon from "@mui/icons-material/TextsmsRounded";
+import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 function Header() {
-  const HomeIcon = (props) => {
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth={1.5}
-      stroke="currentColor"
-      className="size-6"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
-      />
-    </svg>;
-  };
   return (
-    <div>
+    <div className="sticky top-0 z-50 bg-white flex items-center p-2 lg:px-5 shadow-md">
       <div className="flex items-center">
         <Image
           src="https://i.pinimg.com/236x/5b/b0/f7/5bb0f73a7b3e0f976acad614a42e5040.jpg"
@@ -30,23 +26,10 @@ function Header() {
           layout="fixed"
         />
         <div className="flex ml-2 items-center rounded-full bg-gray-100 p-2">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="h-6 text-gray-600"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
-            />
-          </svg>
+          <SearchIcon className="h-6 text-gray-600" />
 
           <input
-            className="flex ml-2 items-center bg-transparent outline-none placeholder-gray-500"
+            className="hidden md:inline-flex ml-2 items-center bg-transparent outline-none placeholder-gray-500 flex-shrink"
             type="text"
             placeholder="Search Facebook"
           />
@@ -54,9 +37,23 @@ function Header() {
       </div>
 
       <div className="flex justify-center flex-grow">
-        <div>
-          <HeaderIcon Icon={HomeIcon} />
+        <div className="flex space-x-6 md:space-x-2">
+          <HeaderIcon Icon={HomeOutlinedIcon} />
+          <HeaderIcon Icon={FlagOutlinedIcon} />
+          <HeaderIcon Icon={PlayCircleFilledWhiteOutlinedIcon} />
+          <HeaderIcon Icon={ShoppingCartOutlinedIcon} />
+          <HeaderIcon Icon={PeopleOutlineIcon} />
         </div>
+      </div>
+
+      <div className="flex items-center sm:space-x-2 justify-end">
+        <p className="whitespace-nowrap font-semibold pr-3 text-gray-500">
+          Eman Tariq
+        </p>
+        <GridViewRoundedIcon className="icon" />
+        <TextsmsRoundedIcon className="icon" />
+        <NotificationsOutlinedIcon className="icon" />
+        <ExpandMoreIcon className="icon" />
       </div>
     </div>
   );
